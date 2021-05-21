@@ -1,10 +1,16 @@
-int removeDuplicates(vector<int>& nums) {
-        if(!nums.size()) return 0;
-        int lastNumber, i, j;
-        for(i = 1, j = 1, lastNumber = nums[0]; i < nums.size();i++)
-            if(nums[i] > lastNumber){ // Strictly greater
-                lastNumber = nums[i];
-                swap(nums[i], nums[j++]);
-            }
-        return j;
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int n = nums.size();
+        if(n == 0) return 0;
+        int i = 0;
+        for (int j = 1; j < n; j++) {
+        if (nums[j] != nums[i]) {
+            i++;
+            nums[i] = nums[j];
+        }
     }
+    return i + 1;
+        
+    }
+};
